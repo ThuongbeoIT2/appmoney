@@ -1,0 +1,31 @@
+<!-- item_trade.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:text="Hoá Đơn"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="#101010"
+        android:textSize="28dp" />
+
+    <TextView
+        android:id="@+id/dateTextView"
+        android:layout_width="wrap_content"
+        android:text="Thứ bảy,27 tháng 4 2024"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:textAppearanceSmall"
+        android:textColor="#9A8B8B" />
+
+    <TextView
+        android:id="@+id/textCost"
+        android:layout_width="274dp"
+        android:layout_height="32dp"
+        android:text="100,000.00"
+        android:textSize="20dp"
+        android:textColor="#E40B0B"/>
+</LinearLayout>
