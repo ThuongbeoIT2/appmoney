@@ -31,15 +31,17 @@
                     android:src="@drawable/ic_notify"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"/>
+
                 <TextView
-                    android:layout_marginTop="20dp"
                     android:id="@+id/welcome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Welcome"
+                    android:text="Xin chào"
                     android:textColor="@color/black"
                     android:textSize="24dp"
-                    tools:ignore="MissingConstraints" />
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:layout_editor_absoluteY="7dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -50,64 +52,25 @@
            <LinearLayout
                android:layout_marginTop="20dp"
                android:layout_width="match_parent"
-               android:layout_height="500dp"
+               android:layout_height="1000dp"
                android:orientation="vertical">
                <TextView
                    android:layout_width="match_parent"
                    android:layout_height="30dp"
-                   android:text="Giao dich gan nhat cua ban"
+                   android:text="Giao dịch gần đây"
                    android:textSize="20dp"
-                   android:textStyle="bold"
                    android:layout_marginLeft="80dp"
                    />
+
                <androidx.recyclerview.widget.RecyclerView
                    android:id="@+id/rcvTrade"
                    android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
+                   android:layout_height="700dp"
                    android:layout_marginLeft="15dp"
-                   android:background="@color/white"
-                   >
-
+                   android:background="@color/white">
                </androidx.recyclerview.widget.RecyclerView>
-
-               <Button
-                   android:layout_width="100dp"
-                   android:layout_height="50dp"
-                   android:text="Chi tiet"
-                   android:layout_marginTop="-50dp"
-                   android:layout_marginLeft="170dp"/>
-
            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="-200dp"
-                android:layout_width="match_parent"
-                android:layout_height="500dp"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:text="Thống kê"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:layout_marginLeft="180dp"
-                    />
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcvSatis"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:background="@color/white"
-                    >
-                </androidx.recyclerview.widget.RecyclerView>
 
-                <Button
-                    android:layout_width="100dp"
-                    android:layout_height="50dp"
-                    android:text="Chi tiet"
-                    android:layout_marginTop="-50dp"
-                    android:layout_marginLeft="170dp"/>
-
-            </LinearLayout>
         </LinearLayout>
 
     </ScrollView>
@@ -186,7 +149,7 @@
                     android:visibility="visible">
 
                     <ImageView
-                        android:id="@+id/btn3"
+                        android:id="@+id/btnaddtrade"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:layout_gravity="center"

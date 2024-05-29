@@ -1,6 +1,7 @@
 package com.example.dtapp.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -12,8 +13,7 @@ import android.widget.ViewFlipper;
 
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
+
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,11 +21,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.dtapp.R;
 import com.example.dtapp.adapter.TradeAdapter;
-import com.example.dtapp.model.CateRespone;
+
 import com.example.dtapp.model.TradeResponse;
 import com.example.dtapp.retrofit.ApiClient;
 import com.example.dtapp.retrofit.ApiService;
-import com.example.dtapp.viewmodel.TradeViewModel;
+
 
 
 import java.util.ArrayList;
@@ -39,17 +39,20 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private ViewFlipper viewFlipper;
-    private Button newButton;
+    private ImageView addTrade;
+    private ImageView profile;
+    private ImageView trade;
+    private ImageView Statistical;
     private TextView welcome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initObject();
-        welcome.setText("Welcome : "+ ApiClient.getUsername());
+        welcome.setText("Welcome");
         ActionBar();
         ActionViewFlipper();
-        TradeViewModel viewModel = new ViewModelProvider(this).get(TradeViewModel.class);
+
 
         // Khởi tạo RecyclerView và Adapter
         RecyclerView recyclerView = findViewById(R.id.rcvTrade);
@@ -59,20 +62,18 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         DividerItemDecoration itemDecoration= new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(itemDecoration);
-        TradeAdapter adapter = new TradeAdapter();
 
-        // Add sample data
-//        tradeItemList.add(new TradeResponse(1, "Title 1", "Date 1", 1000, "Category 1"));
-//        tradeItemList.add(new TradeResponse(2, "Title 2", "Date 2", 2000, "Category 2"));
-//        tradeItemList.add(new TradeResponse(3, "Title 3", "Date 3", 3000, "Category 3"));
+
         ApiService apiService= ApiClient.getInstance().getMyApi();
-        Call<List<TradeResponse>> call = apiService.GetAllTrade(ApiClient.getAccessToken());
+        Call<List<TradeResponse>> call = apiService.GetAllTradeTop5(ApiClient.getAccessToken());
         call.enqueue(new Callback<List<TradeResponse>>() {
             @Override
             public void onResponse(Call<List<TradeResponse>> call, Response<List<TradeResponse>> response) {
                 List<TradeResponse> tradeItemList = new ArrayList<>();
+                TradeAdapter adapter = new TradeAdapter();
                 tradeItemList= response.body();
                 adapter.setTradeList(tradeItemList);
+                recyclerView.setAdapter(adapter);
             }
 
             @Override
@@ -80,19 +81,34 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-//        // Gắn Adapter cho RecyclerView
-        recyclerView.setAdapter(adapter);
-//
-//        // Lắng nghe LiveData từ ViewModel để cập nhật dữ liệu
-//        viewModel.getTradeListLiveData().observe(this, new Observer<List<TradeResponse>>() {
-//            @Override// Khởi tạo ViewModel
-//
-//            public void onChanged(List<TradeResponse> tradeItems) {
-//                // Update UI with new data
-//                adapter.setTradeList(tradeItems);
-//            }
-//        });
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                startActivity(intent);
+            }
+        });
+        addTrade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AddTradeActivity.class);
+                startActivity(intent);
+            }
+        });
+        trade.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), TradeActivity.class);
+                startActivity(intent);
+            }
+        });
+        Statistical.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(getApplicationContext(), StatisticalActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void ActionViewFlipper() {
@@ -123,5 +139,9 @@ public class MainActivity extends AppCompatActivity {
     private void initObject() {
         viewFlipper=findViewById(R.id.viewflipper);
         welcome= findViewById(R.id.welcome);
+        profile= findViewById(R.id.btn5);
+        addTrade=findViewById(R.id.btnaddtrade);
+        trade=findViewById(R.id.btn2);
+        Statistical=findViewById(R.id.btn4);
     }
 }

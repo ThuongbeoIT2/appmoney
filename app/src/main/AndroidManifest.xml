@@ -16,6 +16,27 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".activity.StatisticalActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AddSpendActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.CategorySpendActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.CategoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ChangePassword"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AddTradeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.TradeActivity"
             android:exported="false" />
         <activity
