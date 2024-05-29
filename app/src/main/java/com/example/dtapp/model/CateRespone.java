@@ -33,4 +33,10 @@ public class CateRespone {
     public void setUrlImage(String urlImage) {
         this.urlImage = urlImage;
     }
+
+    public CateRespone(int cateId, String cateName, String urlImage) {
+        this.cateId = cateId;
+        this.cateName = cateName;
+        this.urlImage = urlImage;
+    }
 }

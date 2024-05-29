@@ -2,4 +2,5 @@
     <string name="app_name">DTApp</string>
     <string name="error_message">Tài khoản sai định dạng</string>
     <string name="error_password">Mật khẩu không được để trống</string>
+    <string name="back_button_description">Quay lại</string>
 </resources>

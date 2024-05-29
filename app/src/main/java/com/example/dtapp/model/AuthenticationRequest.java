@@ -1,6 +1,5 @@
 package com.example.dtapp.model;
 
-
 public class AuthenticationRequest{
 
   private String email;

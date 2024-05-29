@@ -2,8 +2,6 @@ package com.example.dtapp.model;
 
 
 public class AuthenticationResponse {
-
-
   private String accesstoken;
 
   private String refreshtoken;

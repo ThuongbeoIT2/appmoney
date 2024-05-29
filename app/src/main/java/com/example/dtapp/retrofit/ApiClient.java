@@ -15,7 +15,6 @@ public class ApiClient {
     private ApiService myApi;
     private static String accessToken;
     private static String username;
-
     public static String getUsername() {
         return username;
     }
@@ -38,7 +37,6 @@ public class ApiClient {
             Request original = chain.request();
             Request.Builder requestBuilder = original.newBuilder();
             if (accessToken != null && !accessToken.isEmpty()) {
-
                 requestBuilder.header("Authorization", "Bearer " + accessToken);
             }
             Request request = requestBuilder.build();
