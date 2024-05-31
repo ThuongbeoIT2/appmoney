@@ -12,7 +12,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Money Note"
-            android:textColor="#CD9F13"
+            android:textColor="#FFC107"
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
@@ -37,7 +37,9 @@
                 android:id="@+id/taikkhoan"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Tài khoản">
+                android:hint="Tài khoản"
+                app:endIconDrawable="@drawable/icon_user"
+                app:endIconMode="custom">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -63,10 +65,12 @@
             <Button
                 android:id="@+id/buttondangnhap"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="65dp"
                 android:text="Đăng nhập"
+                android:textSize="20dp"
                 android:textColor="@color/white"
-                app:backgroundTint="#D6B346" />
+                app:backgroundTint="#FFC107"
+                app:layout_constraintHorizontal_bias="0.506" />
 
         </LinearLayout>
 
@@ -122,13 +126,12 @@
         android:id="@+id/logo"
         android:layout_width="162dp"
         android:layout_height="111dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="92dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
-        android:src="@drawable/logo"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@drawable/logo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

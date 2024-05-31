@@ -44,6 +44,7 @@ public class AddSpendActivity extends AppCompatActivity {
 
         // Ánh xạ đối tượng từ layout XML
         mapViews();
+        costEditText.getEditText().setText(String.valueOf(Storerage.getCost()));
         cateNameEditText.getEditText().setText(Storerage.getCatename());
         // Thêm các sự kiện hoặc xử lý tương ứng ở đây
         setUpButtons();
@@ -63,18 +64,13 @@ public class AddSpendActivity extends AppCompatActivity {
         btnBack.setOnClickListener(view -> {
             Storerage.setCatename("Chưa xác định");
             Storerage.setCateId(-1);
+            Storerage.setCost(0);
             finish(); // Kết thúc hoạt động hiện tại
-        });
-        cateNameEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CategorySpendActivity.class);
-                startActivity(intent);
-            }
         });
         btnSelectCate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Storerage.setCost(Long.parseLong(String.valueOf(costEditText.getEditText().getText())));
                 Intent intent = new Intent(getApplicationContext(), CategorySpendActivity.class);
                 startActivity(intent);
             }
@@ -97,6 +93,7 @@ public class AddSpendActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), response.body(), Toast.LENGTH_LONG).show();
                         Storerage.setCatename("Chưa xác định");
                         Storerage.setCateId(-1);
+                        Storerage.setCost(0);
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                     }
@@ -105,6 +102,7 @@ public class AddSpendActivity extends AppCompatActivity {
                     public void onFailure(Call<String> call, Throwable t) {
                         Storerage.setCatename("Chưa xác định");
                         Storerage.setCateId(-1);
+                        Storerage.setCost(0);
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                     }

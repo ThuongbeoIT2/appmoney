@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.dtapp.R;
 import com.example.dtapp.retrofit.ApiClient;
 import com.example.dtapp.retrofit.ApiService;
+import com.example.dtapp.retrofit.NetworkUtils;
 import com.google.android.material.textfield.TextInputLayout;
 
 import retrofit2.Call;
@@ -28,6 +29,7 @@ public class FGPassWordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fgpass_word);
         anhxa();
+
         btnFG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,6 +39,7 @@ public class FGPassWordActivity extends AppCompatActivity {
                 call.enqueue(new Callback<String>() {
                     @Override
                     public void onResponse(Call<String> call, Response<String> response) {
+                        Toast.makeText(getApplicationContext(),response.body(),Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                         startActivity(intent);
                     }

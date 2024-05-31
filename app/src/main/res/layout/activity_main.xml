@@ -14,36 +14,30 @@
         >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="match_parent"
             android:orientation="vertical"
             >
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp">
-                <ImageView
-                    android:id="@+id/notify"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:src="@drawable/ic_notify"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                android:layout_height="63dp"
+                android:background="#FFC107">
+
+
+
                 <TextView
-                    android:layout_marginTop="20dp"
                     android:id="@+id/welcome"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Welcome"
+                    android:text="Xin chào,"
                     android:textColor="@color/black"
-                    android:textSize="24dp"
-                    tools:ignore="MissingConstraints" />
+                    android:textSize="26dp"
+                    tools:ignore="MissingConstraints"
+                    tools:layout_editor_absoluteX="7dp"
+                    tools:layout_editor_absoluteY="7dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-           <ViewFlipper
+            <ViewFlipper
                android:id="@+id/viewflipper"
                android:layout_width="match_parent"
                android:layout_height="200dp"/>
@@ -55,7 +49,7 @@
                <TextView
                    android:layout_width="match_parent"
                    android:layout_height="30dp"
-                   android:text="Giao dich gan nhat cua ban"
+                   android:text="Giao dịch gần nhất của bạn"
                    android:textSize="20dp"
                    android:textStyle="bold"
                    android:layout_marginLeft="80dp"
@@ -79,16 +73,18 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
         <com.google.android.material.bottomappbar.BottomAppBar
-            android:layout_width="match_parent"
             android:id="@+id/appbar"
-            android:layout_height="60dp"
-            android:layout_margin="32dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#FFC107"
+            android:padding="4dp"
             app:fabCradleMargin="8dp"
             app:fabCradleRoundedCornerRadius="50dp"
-            app:fabCradleVerticalOffset="6dp"
-            android:padding="4dp"
-            android:background="@color/cardview_dark_background">
+            app:fabCradleVerticalOffset="6dp">
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -111,7 +107,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Home"
+                        android:text="Trang chủ"
                         android:textAlignment="center" />
 
 
@@ -128,16 +124,14 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_overall" />
+                        android:src="@drawable/ic_trade" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Home"
+                        android:text="Giao dịch"
                         android:textAlignment="center" />
-
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -167,15 +161,16 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_overall" />
+                        android:src="@drawable/ic_sta" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Home"
+                        android:text="Thống kê"
                         android:textAlignment="center" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -187,13 +182,13 @@
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/ic_overall" />
+                        android:src="@drawable/ic_profile" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:text="Home"
+                        android:text="Thông tin"
                         android:textAlignment="center" />
                 </LinearLayout>
 

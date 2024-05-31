@@ -17,6 +17,7 @@ import com.example.dtapp.model.AuthenticationRequest;
 import com.example.dtapp.model.AuthenticationResponse;
 import com.example.dtapp.retrofit.ApiClient;
 import com.example.dtapp.retrofit.ApiService;
+import com.example.dtapp.retrofit.NetworkUtils;
 import com.google.android.material.textfield.TextInputLayout;
 
 import retrofit2.Call;
@@ -33,16 +34,18 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         initid();
-
+        if (NetworkUtils.isNetworkAvailable(this)) {
+            Toast.makeText(this, "Network is available", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "No network available", Toast.LENGTH_SHORT).show();
+        }
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String email = inputemail.getEditText().getText().toString();
                 String password = inputpass.getEditText().getText().toString();
                 AuthenticationRequest authenticationRequest = new AuthenticationRequest(email, password);
-                Log.i("rq", authenticationRequest.toString());
                 ApiService apiService = ApiClient.getInstance().getMyApi();
-
                     Call<AuthenticationResponse> call = apiService.Login(authenticationRequest);
                     call.enqueue(new Callback<AuthenticationResponse>() {
                         @Override

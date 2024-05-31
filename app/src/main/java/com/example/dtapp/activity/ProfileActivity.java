@@ -52,10 +52,10 @@ public class ProfileActivity extends AppCompatActivity {
                 addressTextView.getEditText().setEnabled(true);
                 phoneTextView.getEditText().setText(profileResponse.getPhoneNumber());
                 phoneTextView.getEditText().setEnabled(true);
-                Glide.with(getApplicationContext())
-                        .load(profileResponse.getAvatar())
-                        .apply(new RequestOptions().override(avatarImageView.getWidth(), avatarImageView.getHeight()))
-                        .into(avatarImageView);
+//                Glide.with(getApplicationContext())
+//                        .load(profileResponse.getAvatar())
+//                        .apply(new RequestOptions().override(avatarImageView.getWidth(), avatarImageView.getHeight()))
+//                        .into(avatarImageView);
 
             }
 

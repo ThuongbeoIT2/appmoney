@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 
@@ -25,7 +26,7 @@ import com.example.dtapp.adapter.TradeAdapter;
 import com.example.dtapp.model.TradeResponse;
 import com.example.dtapp.retrofit.ApiClient;
 import com.example.dtapp.retrofit.ApiService;
-
+import com.example.dtapp.retrofit.NetworkUtils;
 
 
 import java.util.ArrayList;
@@ -49,7 +50,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initObject();
-        welcome.setText("Welcome");
+        if (NetworkUtils.isNetworkAvailable(this)) {
+            Toast.makeText(this, "Network is available", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "No network available", Toast.LENGTH_SHORT).show();
+        }
         ActionBar();
         ActionViewFlipper();
 

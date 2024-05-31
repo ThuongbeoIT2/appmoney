@@ -18,7 +18,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/trade_item"
+            android:background="#FFC107"
             android:orientation="horizontal">
 
             <ImageButton
@@ -36,8 +36,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Quay lại"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+                android:textSize="20dp"
+                />
         </LinearLayout>
 
         <TextView
@@ -46,9 +46,9 @@
             android:layout_height="61dp"
             android:gravity="center"
             android:text="Danh sách giao dịch"
-            android:textColor="#12CF1A"
+            android:textColor="#141514"
             android:textSize="26sp"
-            android:textStyle="bold" />
+            />
 
         <LinearLayout
             android:id="@+id/searchLayout"
@@ -59,16 +59,19 @@
 
             <SearchView
                 android:id="@+id/searchView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="283dp"
+                android:layout_height="58dp"
                 android:layout_weight="1"
+                android:background="@drawable/border"
                 android:queryHint="Tìm kiếm giao dịch theo danh mục" />
 
             <Button
                 android:id="@+id/searchButton"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Tìm kiếm" />
+                android:layout_height="match_parent"
+                android:text="Tìm kiếm"
+                android:textSize="16dp"
+                app:backgroundTint="#FFC107" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

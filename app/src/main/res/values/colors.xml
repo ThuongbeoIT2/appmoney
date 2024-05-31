@@ -2,7 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="trade_item">#AA676A</color>
+    <color name="trade_item">#E6ECEF</color>
     <color name="background_Profile">#EDEDF1</color>
     <color name="yellow">#FF5722</color>
+    <color name="btnback">#B13D2F</color>
 </resources>

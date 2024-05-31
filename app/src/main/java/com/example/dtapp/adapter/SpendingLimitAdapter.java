@@ -73,7 +73,7 @@ public class SpendingLimitAdapter extends RecyclerView.Adapter<SpendingLimitAdap
                                 deleteSpend(spendingLimitResponse);
                                 Toast.makeText(holder.itemView.getContext(), "Xóa thành công",Toast.LENGTH_LONG).show();
                             }
-
+                            
                             private void deleteSpend(SpendingLimitResponse spendingLimitResponse) {
                                 ApiService apiService= ApiClient.getInstance().getMyApi();
                                 Call<String> call = apiService.DeleteSpend(ApiClient.getAccessToken(),spendingLimitResponse.getSpendId());
@@ -81,9 +81,9 @@ public class SpendingLimitAdapter extends RecyclerView.Adapter<SpendingLimitAdap
                                     @Override
                                     public void onResponse(Call<String> call, Response<String> response) {
                                         spendingLimitResponses.remove(spendingLimitResponse);
+                                        setSpendingLimitList(spendingLimitResponses);
                                         Toast.makeText(v.getContext(), "Xóa thành công",Toast.LENGTH_LONG).show();
                                     }
-
                                     @Override
                                     public void onFailure(Call<String> call, Throwable t) {
                                         Toast.makeText(v.getContext(), "Lỗi server",Toast.LENGTH_LONG).show();
@@ -111,7 +111,6 @@ public class SpendingLimitAdapter extends RecyclerView.Adapter<SpendingLimitAdap
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return spendingLimitResponses.size();

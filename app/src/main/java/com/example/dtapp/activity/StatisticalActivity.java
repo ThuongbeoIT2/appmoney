@@ -61,6 +61,23 @@ public class StatisticalActivity extends AppCompatActivity {
         ApiService apiService= ApiClient.getInstance().getMyApi();
         Call<List<SpendingLimitResponse>> call = apiService.getAllSpending(ApiClient.getAccessToken());
         SpendingLimitAdapter adapter = new SpendingLimitAdapter();
+        Call<List<TradeResponse>> tradeList= apiService.GetTradeLogNow(ApiClient.getAccessToken());
+        tradeList.enqueue(new Callback<List<TradeResponse>>() {
+            @Override
+            public void onResponse(Call<List<TradeResponse>> call, Response<List<TradeResponse>> response) {
+                long chi=0;
+
+                for (TradeResponse item: response.body()){
+                    chi+=item.getCost();
+                }
+                item_tongchi.getEditText().setText(String.valueOf(chi));
+            }
+
+            @Override
+            public void onFailure(Call<List<TradeResponse>> call, Throwable t) {
+
+            }
+        });
         call.enqueue(new Callback<List<SpendingLimitResponse>>() {
             @Override
             public void onResponse(Call<List<SpendingLimitResponse>> call, Response<List<SpendingLimitResponse>> response) {
@@ -72,7 +89,7 @@ public class StatisticalActivity extends AppCompatActivity {
                     chi+=item.getExpenditure();
                 }
                 item_tongquy.getEditText().setText(String.valueOf(quy));
-                item_tongchi.getEditText().setText(String.valueOf(chi));
+
                 adapter.setSpendingLimitList(spendingLimitResponses);
                 rcvSpend.setAdapter(adapter);
             }

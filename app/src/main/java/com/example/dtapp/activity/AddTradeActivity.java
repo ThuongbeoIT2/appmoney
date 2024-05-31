@@ -45,6 +45,9 @@ public class AddTradeActivity extends AppCompatActivity {
 
         // Ánh xạ đối tượng từ layout XML
         mapViews();
+        titleEditText.getEditText().setText(Storerage.getTitle());
+        dateEditText.setText(Storerage.getDate());
+        costEditText.getEditText().setText(String.valueOf(Storerage.getCost()));
         cateNameEditText.getEditText().setText(Storerage.getCatename());
         // Thêm các sự kiện hoặc xử lý tương ứng ở đây
         setUpButtons();
@@ -65,19 +68,18 @@ public class AddTradeActivity extends AppCompatActivity {
         btnBack.setOnClickListener(view -> {
             Storerage.setCatename("Chưa xác định");
             Storerage.setCateId(-1);
+            Storerage.setCost(0);
+            Storerage.setDate("");
+            Storerage.setTitle("");
             // Xử lý khi nhấn nút back
             finish(); // Kết thúc hoạt động hiện tại
-        });
-        cateNameEditText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CategoryActivity.class);
-                startActivity(intent);
-            }
         });
         btnSelectCate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Storerage.setCost(Long.parseLong(String.valueOf(costEditText.getEditText().getText())));
+                Storerage.setDate(dateEditText.getText().toString());
+                Storerage.setTitle(titleEditText.getEditText().getText().toString());
                 Intent intent = new Intent(getApplicationContext(), CategoryActivity.class);
                 startActivity(intent);
             }
@@ -101,6 +103,9 @@ public class AddTradeActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), response.body(), Toast.LENGTH_LONG).show();
                             Storerage.setCatename("Chưa xác định");
                             Storerage.setCateId(-1);
+                            Storerage.setCost(0);
+                            Storerage.setDate("");
+                            Storerage.setTitle("");
                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                             startActivity(intent);
                     }
@@ -109,6 +114,9 @@ public class AddTradeActivity extends AppCompatActivity {
                     public void onFailure(Call<String> call, Throwable t) {
                         Storerage.setCatename("Chưa xác định");
                         Storerage.setCateId(-1);
+                        Storerage.setCost(0);
+                        Storerage.setDate("");
+                        Storerage.setTitle("");
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                     }

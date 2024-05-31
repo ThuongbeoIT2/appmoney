@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SearchView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -50,7 +52,6 @@ public class CategoryActivity extends AppCompatActivity {
         rcvCate.setLayoutManager(new LinearLayoutManager(this));
         DividerItemDecoration itemDecoration= new DividerItemDecoration(this,DividerItemDecoration.VERTICAL);
         rcvCate.addItemDecoration(itemDecoration);
-        // Tạo danh sách giả định các danh mục
 
         ApiService apiService= ApiClient.getInstance().getMyApi();
         Call<List<CateRespone>> call = apiService.GetCateBySpend(ApiClient.getAccessToken());
@@ -58,7 +59,6 @@ public class CategoryActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<CateRespone>>() {
             @Override
             public void onResponse(Call<List<CateRespone>> call, Response<List<CateRespone>> response) {
-
                 cateList= response.body();
                 adapter.setCateList(cateList);
                 rcvCate.setAdapter(adapter);
@@ -66,7 +66,7 @@ public class CategoryActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<List<CateRespone>> call, Throwable t) {
-
+                Toast.makeText(getApplicationContext(),"Lỗi Server",Toast.LENGTH_LONG).show();
             }
         });
         backButton.setOnClickListener(new View.OnClickListener() {

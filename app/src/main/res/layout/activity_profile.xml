@@ -10,16 +10,14 @@
     tools:context=".activity.ProfileActivity">
 
   <LinearLayout
-      android:layout_marginTop="30dp"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:orientation="vertical"
       tools:ignore="ExtraText">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="10dp"
+        android:background="#FFC107"
         android:orientation="horizontal">
 
       <ImageButton
@@ -36,8 +34,7 @@
           android:layout_width="200dp"
           android:layout_height="wrap_content"
           android:text="Quay lại "
-          android:textStyle="bold"
-          android:textSize="25dp"
+          android:textSize="20dp"
           android:layout_gravity="center" />
     </LinearLayout>
 
@@ -64,7 +61,7 @@
           android:id="@+id/avatar"
           android:layout_width="100dp"
           android:layout_height="200dp"
-          android:src="@drawable/avatar"
+          android:src="@drawable/logo"
           android:textStyle="bold"
           android:textSize="50dp"
           android:layout_marginLeft="150dp"
@@ -95,8 +92,7 @@
           android:layout_marginTop="5dp"
           android:layout_marginLeft="20dp"
           android:layout_height="wrap_content"
-          android:hint="FirstName">
-
+          android:hint="Họ">
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="175dp"
             android:layout_marginLeft="2dp"
@@ -105,7 +101,6 @@
             android:enabled="false"
             android:focusable="false" />
       </com.google.android.material.textfield.TextInputLayout>
-
       <com.google.android.material.textfield.TextInputLayout
           android:id="@+id/lastname"
           android:layout_width="180dp"
@@ -113,7 +108,7 @@
           android:layout_marginLeft="20dp"
           android:layout_marginRight="2dp"
           android:layout_height="wrap_content"
-          android:hint="LastName">
+          android:hint="Tên">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -136,7 +131,7 @@
           android:layout_marginLeft="20dp"
 
           android:layout_height="wrap_content"
-          android:hint="Phone">
+          android:hint="Điện thoại">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -157,7 +152,7 @@
           android:layout_width="380dp"
           android:layout_marginLeft="20dp"
           android:layout_height="wrap_content"
-          android:hint="Address">
+          android:hint="Địa chỉ">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -169,26 +164,30 @@
     </LinearLayout>
 
     <TextView
-        android:layout_marginTop="20dp"
         android:id="@+id/changepass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Đổi mật khẩu"
-        android:textStyle="bold"
-        android:textSize="25dp"
+        android:layout_width="254dp"
+        android:layout_height="58dp"
         android:layout_gravity="center"
-        android:textAlignment="center" />
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border_button"
+        android:text="Đổi mật khẩu"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_marginTop="100dp"
         android:id="@+id/logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="254dp"
+        android:layout_height="58dp"
         android:text="Đăng xuất"
         android:textStyle="bold"
-        android:textColor="@color/trade_item"
+        android:textColor="@color/black"
         android:textSize="25dp"
+        android:background="@drawable/border_button_dx"
         android:layout_gravity="center"
+        android:gravity="center"
         android:textAlignment="center" />
   </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
